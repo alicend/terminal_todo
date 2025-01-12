@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # TODOファイルのパスを定義
 TODO_FILE="$HOME/.todo_list"
 
@@ -20,16 +18,6 @@ add_task() {
     fi
     echo "$task" >> "$TODO_FILE"
     echo "タスクを追加しました: $task"
-}
-
-# タスクを一覧表示
-list_tasks() {
-    initialize_todo_file
-    if [ ! -s "$TODO_FILE" ]; then
-        echo "TODOリストは空です。"
-    else
-        nl -w1 -s'. ' "$TODO_FILE"
-    fi
 }
 
 # タスクを削除
@@ -68,6 +56,16 @@ clear_task() {
     echo "全てのタスクを削除しました。"
 }
 
+# タスクを一覧表示
+list_tasks() {
+    initialize_todo_file
+    if [ ! -s "$TODO_FILE" ]; then
+        echo "TODOリストは空です。"
+    else
+        nl -w1 -s'. ' "$TODO_FILE"
+    fi
+}
+
 # TODOの個数を取得
 todo_count() {
     initialize_todo_file
@@ -80,9 +78,6 @@ case "$1" in
         shift
         add_task "$*"
         ;;
-    list)
-        list_tasks
-        ;;
     delete)
         shift
         delete_task "$1"
@@ -90,10 +85,13 @@ case "$1" in
     clear)
         clear_task
         ;;
+    list)
+        list_tasks
+        ;;
     count)
         todo_count
         ;;
     *)
-        echo "使用方法: todo {add|list|delete|clear|count}"
+        echo "使用方法: todo {add|delete|clear|list|count}"
         ;;
 esac
