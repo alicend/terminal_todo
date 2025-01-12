@@ -1,33 +1,37 @@
-# TODO アプリ (Shell Script)
+###### Language
+- English
+- [日本語](README-ja.md) 
 
-このTODOアプリは、シンプルなシェルスクリプトを使って、タスクの管理を行うツールです。タスクの追加、削除、リスト表示、タスク数の表示を簡単に実行できます。
+# TODO App (Shell Script)
+
+This TODO app is a simple shell script that helps you manage tasks. It allows you to easily add, delete, list, and display the number of tasks in your TODO list.
 
 ---
 
 ## 機能
 
-- **タスクの追加** (`add`):
-  - 新しいタスクを追加し、番号を自動的に割り振ります。
+- **Add Task** (`add`):
+  - Adds a new task and automatically assigns a number.
 
-- **タスクの削除** (`delete`):
-  - 指定した番号のタスクを削除します。
+- **Delete Task** (`delete`):
+  - Deletes a task by specifying its number.
   
-- **タスクの全削除** (`clear`):
-  - すべてのタスクを削除します。
+- **Clear All Tasks** (`clear`):
+  - Deletes all tasks from the list.
 
-- **タスクの一覧表示** (`list`):
-  - 現在のTODOリストを表示します。
+- **List Tasks** (`list`):
+  - Displays the current TODO list.
 
-- **タスクの数を表示** (`count`):
-  - 現在のTODOリストにあるタスクの数を表示します。
+- **Count Tasks** (`count`):
+  - Displays the number of tasks currently in the TODO list.
 
 ---
 
-## インストール方法
+## Installation
 
-1. スクリプトファイルをダウンロードして、任意のディレクトリに保存します。
-2. ターミナルを開き、`todo.sh`を格納したディレクトリに移動します。
-3. 実行権限を付与します。
+1. Download the script file and save it to any directory of your choice.
+2. Open the terminal and navigate to the directory where todo.sh is stored.
+3. Grant execute permissions to the script.
 
 ```zsh
 chmod +x todo.sh
@@ -35,31 +39,31 @@ chmod +x todo.sh
 
 ---
 
-## カスタマイズ
+## Customization
 
-- TODOリストのファイルの場所を変更する場合は、`TODO_FILE`変数を適切なパスに変更してください。
-
----
-
-## 依存関係
-
-- このスクリプトは、**zsh**がインストールされている環境で動作します。
-- 特別なライブラリやツールは必要ありません。
+- If you wish to change the location of the TODO list file, modify the TODO_FILE variable to the desired path.
 
 ---
 
-## TODO数をプロンプトに表示 (zsh)
+## Dependencies
 
-ターミナルのプロンプトにTODOタスクの数を表示するには、以下を.zshrcファイルに追加します：
+- This script works in an environment where **zsh** is installed.
+- No special libraries or tools are required.
+
+---
+
+## Display Task Count in Prompt (zsh)
+
+To display the number of TODO tasks in your terminal prompt, add the following to your .zshrc file:
 
 ```zsh
 precmd() {
-    local todo_count=$(bash ~/todo.sh count) # todo.shを格納した任意のディレクトリを指定
+    local todo_count=$(bash ~/todo.sh count) # Specify the appropriate directory where todo.sh is stored
     PS1="%~ [TODO: $todo_count] \$ "
 }
 ```
 
-.zshrc の内容を現在のシェルに反映する場合は以下のコマンドを実行します
+To apply the changes to the current shell, run the following command:
 
 ```zsh
 source ~/.zshrc
@@ -67,15 +71,15 @@ source ~/.zshrc
 
 ---
 
-## エイリアスを作成 (zsh)
+## Create Aliases (zsh)
 
-TODOスクリプトを簡単に実行できるようにエイリアスを作成する場合は、以下を.zshrcファイルに追加します：
+To easily run the TODO script, create an alias by adding the following to your .zshrc file:
 
 ```zsh
-alias todo="bash ~/todo.sh" # todo.shを格納した任意のディレクトリを指定
+alias todo="bash ~/todo.sh" # Specify the appropriate directory where todo.sh is stored
 ```
 
-.zshrc の内容を現在のシェルに反映する場合は以下のコマンドを実行します
+To apply the changes to the current shell, run the following command:
 
 ```zsh
 source ~/.zshrc
