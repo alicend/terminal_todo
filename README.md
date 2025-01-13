@@ -25,6 +25,9 @@ This TODO app is a simple shell script that helps you manage tasks. It allows yo
 - **Count Tasks** (`count`):
   - Displays the number of tasks currently in the TODO list.
 
+- **Set Language** (`lang`):
+  - Set the language to either English or Japanese.
+
 ---
 
 ## Installation
@@ -36,12 +39,6 @@ This TODO app is a simple shell script that helps you manage tasks. It allows yo
 ```zsh
 chmod +x todo.sh
 ```
-
----
-
-## Customization
-
-- If you wish to change the location of the TODO list file, modify the TODO_FILE variable to the desired path.
 
 ---
 
